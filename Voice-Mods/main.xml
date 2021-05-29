@@ -1,5 +1,5 @@
 <mod name="Voice Mods">
-	<AssetUpdates id="Voice Mods" version="2">
+	<AssetUpdates id="Voice Mods" version="3">
 		<custom_provider 
 			version_api_url="https://drnewbie.github.io/Voice-Mods/Version.txt" 
 			download_url="https://drnewbie.github.io/Voice-Mods/Voice-Mods.zip"/>

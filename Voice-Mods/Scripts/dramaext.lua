@@ -1,7 +1,7 @@
 _G.GGWEPVOICEMODS = _G.GGWEPVOICEMODS or {}
 GGWEPVOICEMODS.ModPath = GGWEPVOICEMODS.ModPath or ModPath
 GGWEPVOICEMODS.SOUNDS = GGWEPVOICEMODS.SOUNDS or {}
-GGWEPVOICEMODS.VERSION = 2
+GGWEPVOICEMODS.VERSION = 3
 
 local __mod_ids = Idstring("Voice Mods"):key()
 local old1 = "O_"..Idstring("old1::"..__mod_ids):key()
@@ -132,7 +132,7 @@ function GGWEPVOICEMODS:__read()
 			local __cmd = 'dir "'..voice_mods_full_path..'" /s /b /o:gn'
 			for __dir in io.popen(__cmd):lines() do
 				if io.file_is_readable(__dir) then
-					__dir = __dir:gsub(voice_mods_full_path, '')
+					__dir = string.sub(__dir, string.len(voice_mods_full_path)+2)
 					local __dir_table = __mysplit(__dir, '\\') or {}
 					if __dir_table[#__dir_table]:find(".ogg") then
 						local __oggs = __mysplit(__dir_table[#__dir_table], '.') or {}
