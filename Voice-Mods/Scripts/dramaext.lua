@@ -1,7 +1,7 @@
 _G.GGWEPVOICEMODS = _G.GGWEPVOICEMODS or {}
 GGWEPVOICEMODS.ModPath = GGWEPVOICEMODS.ModPath or ModPath
 GGWEPVOICEMODS.SOUNDS = GGWEPVOICEMODS.SOUNDS or {}
-GGWEPVOICEMODS.VERSION = 1
+GGWEPVOICEMODS.VERSION = 2
 
 local __mod_ids = Idstring("Voice Mods"):key()
 local old1 = "O_"..Idstring("old1::"..__mod_ids):key()
@@ -124,6 +124,7 @@ function GGWEPVOICEMODS:__read()
 			__xml:write('	</AssetUpdates>\n')
 			__xml:write('	<Hooks directory="Scripts">\n')
 			__xml:write('		<hook source_file="lib/units/dramaext" file="dramaext.lua"/>\n')
+			__xml:write('		<hook source_file="lib/managers/menumanagerpd2" file="dramaext.lua"/>\n')
 			__xml:write('	</Hooks>\n')
 			__xml:write('	<Sounds directory="Assets">\n')
 			local pd2_path = Application:base_path()
@@ -166,26 +167,34 @@ end
 
 GGWEPVOICEMODS:__read()
 
-PlayerSound[old1] = PlayerSound[old1] or PlayerSound._play
-function PlayerSound:_play(__sound, __sauce, ...)
-	local __sound = GGWEPVOICEMODS:__replace(self, __sound, "PlayerSound")
-	return self[old1](self, __sound, nil, ...)
+if PlayerSound then
+	PlayerSound[old1] = PlayerSound[old1] or PlayerSound._play
+	function PlayerSound:_play(__sound, __sauce, ...)
+		local __sound = GGWEPVOICEMODS:__replace(self, __sound, "PlayerSound")
+		return self[old1](self, __sound, nil, ...)
+	end
 end
 
-CopSound[old1] = CopSound[old1] or CopSound._play
-function CopSound:_play(__sound, __sauce, ...)
-	local __sound = GGWEPVOICEMODS:__replace(self, __sound, "CopSound")
-	return self[old1](self, __sound, nil, ...)
+if CopSound then
+	CopSound[old1] = CopSound[old1] or CopSound._play
+	function CopSound:_play(__sound, __sauce, ...)
+		local __sound = GGWEPVOICEMODS:__replace(self, __sound, "CopSound")
+		return self[old1](self, __sound, nil, ...)
+	end
 end
 
-CivilianHeisterSound[old1] = CivilianHeisterSound[old1] or CivilianHeisterSound._play
-function CivilianHeisterSound:_play(__sound, __sauce, ...)
-	local __sound = GGWEPVOICEMODS:__replace(self, __sound, "CivilianHeisterSound")
-	return self[old1](self, __sound, nil, ...)
+if CivilianHeisterSound then
+	CivilianHeisterSound[old1] = CivilianHeisterSound[old1] or CivilianHeisterSound._play
+	function CivilianHeisterSound:_play(__sound, __sauce, ...)
+		local __sound = GGWEPVOICEMODS:__replace(self, __sound, "CivilianHeisterSound")
+		return self[old1](self, __sound, nil, ...)
+	end
 end
 
-DramaExt[old1] = DramaExt[old1] or DramaExt.play_sound
-function DramaExt:play_sound(__sound, __sauce, ...)
-	local __sound = GGWEPVOICEMODS:__replace(self, __sound, "DramaExt")
-	return self[old1](self, __sound, __sauce, ...)
+if DramaExt then
+	DramaExt[old1] = DramaExt[old1] or DramaExt.play_sound
+	function DramaExt:play_sound(__sound, __sauce, ...)
+		local __sound = GGWEPVOICEMODS:__replace(self, __sound, "DramaExt")
+		return self[old1](self, __sound, __sauce, ...)
+	end
 end
