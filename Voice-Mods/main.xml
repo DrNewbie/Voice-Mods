@@ -1,0 +1,14 @@
+<mod name="Voice Mods">
+	<AssetUpdates id="Voice Mods" version="1">
+		<custom_provider 
+			version_api_url="https://drnewbie.github.io/Voice-Mods/Version.txt" 
+			download_url="https://drnewbie.github.io/Voice-Mods/Voice-Mods.zip"/>
+	</AssetUpdates>
+	<Hooks directory="Scripts">
+		<hook source_file="lib/units/dramaext" file="dramaext.lua"/>
+	</Hooks>
+	<Sounds directory="Assets">
+		<sound id="ogg_7f07c5c9390a7604" path="PlayerSound\bodhi\g18\apple_pie.ogg" prefix="first"/>
+		<sound id="ogg_ce9c554de051d041" path="PlayerSound\bodhi\g18\gawr_gura_A.ogg" prefix="first"/>
+	</Sounds>
+</mod>

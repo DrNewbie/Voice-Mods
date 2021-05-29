@@ -1,8 +1,7 @@
 _G.GGWEPVOICEMODS = _G.GGWEPVOICEMODS or {}
-
 GGWEPVOICEMODS.ModPath = GGWEPVOICEMODS.ModPath or ModPath
-
 GGWEPVOICEMODS.SOUNDS = GGWEPVOICEMODS.SOUNDS or {}
+GGWEPVOICEMODS.VERSION = 1
 
 local __mod_ids = Idstring("Voice Mods"):key()
 local old1 = "O_"..Idstring("old1::"..__mod_ids):key()
@@ -118,6 +117,11 @@ function GGWEPVOICEMODS:__read()
 		local __xml = io.open(self.ModPath.."/main.xml", "w+")
 		if __xml then
 			__xml:write('<mod name="Voice Mods">\n')
+			__xml:write('	<AssetUpdates id="Voice Mods" version="'..GGWEPVOICEMODS.VERSION..'">\n')
+			__xml:write('		<custom_provider \n')
+			__xml:write('			version_api_url="https://drnewbie.github.io/Voice-Mods/Version.txt" \n')
+			__xml:write('			download_url="https://drnewbie.github.io/Voice-Mods/Voice-Mods.zip"/>\n')
+			__xml:write('	</AssetUpdates>\n')
 			__xml:write('	<Hooks directory="Scripts">\n')
 			__xml:write('		<hook source_file="lib/units/dramaext" file="dramaext.lua"/>\n')
 			__xml:write('	</Hooks>\n')
