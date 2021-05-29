@@ -1,0 +1,9 @@
+<mod name="Voice Mods">
+	<Hooks directory="Scripts">
+		<hook source_file="lib/units/dramaext" file="dramaext.lua"/>
+	</Hooks>
+	<Sounds directory="Assets">
+		<sound id="ogg_b78fbb9b43de4975" path="PlayerSound\g18\apple_pie.ogg" prefix="first"/>
+		<sound id="ogg_8ed6de0f747b41ef" path="PlayerSound\g18\gawr_gura_A.ogg" prefix="first"/>
+	</Sounds>
+</mod>
