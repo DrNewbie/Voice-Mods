@@ -163,6 +163,9 @@ function GGWEPVOICEMODS:__read()
 	--[[
 	self:__log("__read, SOUNDS, "..json.encode(self.SOUNDS))
 	]]
+	if ModCore and io.file_is_readable(self.ModPath.."/main.xml") then
+		ModCore:new(self.ModPath.."/main.xml", true, true)
+	end
 end
 
 GGWEPVOICEMODS:__read()
